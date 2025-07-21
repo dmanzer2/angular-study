@@ -1,0 +1,407 @@
+<div class="study-guide-container">
+  <header class="study-header">
+    <h1>Angular Interview Study Guide</h1>
+    <p>Master Angular concepts with interactive examples</p>
+  </header>
+
+  <nav class="study-nav">
+    <button
+      *ngFor="let section of getSectionEntries()"
+      class="nav-button"
+      [class.active]="activeSection === section.key"
+      (click)="setActiveSection(section.key)"
+    >
+      {{ section.value.title }}
+    </button>
+  </nav>
+
+  <main class="study-content">
+    <div class="section-header">
+      <h2>{{ getSectionInfo(activeSection).title }}</h2>
+      <p class="section-description">{{ getSectionInfo(activeSection).description }}</p>
+    </div>
+
+    <div class="examples-container">
+      <ng-container [ngSwitch]="activeSection">
+        <!-- Component Architecture Section -->
+        <div *ngSwitchCase="'components'" class="examples-section">
+          <div class="example-card">
+            <h3>📝 Component Basics</h3>
+            <div class="concept-explanation">
+              <p><strong>Key Concepts:</strong></p>
+              <ul>
+                <li><strong>&#64;Component Decorator:</strong> Defines metadata for the component</li>
+                <li><strong>Template:</strong> HTML template with Angular bindings</li>
+                <li><strong>Selector:</strong> CSS selector that identifies the component</li>
+                <li><strong>Standalone:</strong> Modern Angular components don't need NgModules</li>
+              </ul>
+            </div>
+            <div class="code-example">
+              <h4>Basic Component Structure:</h4>
+              <p>Components use &#64;Component decorator with selector, template, and imports</p>
+            </div>
+          </div>
+
+          <div class="example-card">
+            <h3>🔄 Input/Output Communication</h3>
+            <div class="concept-explanation">
+              <p><strong>Parent to Child Communication:</strong></p>
+              <ul>
+                <li><strong>&#64;Input():</strong> Receives data from parent component</li>
+                <li><strong>Property Binding:</strong> [property]="value" syntax</li>
+              </ul>
+              <p><strong>Child to Parent Communication:</strong></p>
+              <ul>
+                <li><strong>&#64;Output():</strong> Emits events to parent component</li>
+                <li><strong>Event Binding:</strong> (event)="handler($event)" syntax</li>
+                <li><strong>EventEmitter:</strong> Used to emit custom events</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="interview-tips">
+            <h4>💡 Interview Tips</h4>
+            <ul>
+              <li><strong>Data Flow:</strong> Parent to child via &#64;Input, child to parent via &#64;Output</li>
+              <li><strong>Template Binding:</strong> Interpolation, property binding, event binding</li>
+              <li><strong>Lifecycle:</strong> ngOnInit for initialization, ngOnDestroy for cleanup</li>
+              <li><strong>Change Detection:</strong> Angular automatically updates DOM when data changes</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Services Section -->
+        <div *ngSwitchCase="'services'" class="examples-section">
+          <div class="example-card">
+            <h3>💉 Service Creation & Dependency Injection</h3>
+            <div class="concept-explanation">
+              <p><strong>Services provide:</strong></p>
+              <ul>
+                <li><strong>Data Management:</strong> Centralized data handling</li>
+                <li><strong>Business Logic:</strong> Reusable functionality</li>
+                <li><strong>API Communication:</strong> HTTP requests and responses</li>
+                <li><strong>State Management:</strong> Application state across components</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="example-card">
+            <h3>🔗 Injectable & Providers</h3>
+            <div class="concept-explanation">
+              <p><strong>Key Concepts:</strong></p>
+              <ul>
+                <li><strong>&#64;Injectable():</strong> Marks class as available for DI</li>
+                <li><strong>providedIn: 'root':</strong> Creates singleton service</li>
+                <li><strong>Constructor Injection:</strong> Angular provides dependencies automatically</li>
+                <li><strong>BehaviorSubject:</strong> Reactive state management with RxJS</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="interview-tips">
+            <h4>💡 Interview Tips</h4>
+            <ul>
+              <li><strong>Singleton Pattern:</strong> providedIn: 'root' creates one instance app-wide</li>
+              <li><strong>Reactive Programming:</strong> Use Observables for async data</li>
+              <li><strong>Separation of Concerns:</strong> Services handle data, components handle UI</li>
+              <li><strong>Testing:</strong> Services are easier to unit test than components</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Reactive Forms Section -->
+        <div *ngSwitchCase="'forms'" class="examples-section">
+          <div class="example-card">
+            <h3>📝 Reactive Forms with FormBuilder</h3>
+            <div class="concept-explanation">
+              <p><strong>Live Example:</strong></p>
+              <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="demo-form">
+                <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input 
+                    id="name" 
+                    type="text" 
+                    formControlName="name"
+                    [class.error]="userForm.get('name')?.invalid && userForm.get('name')?.touched"
+                  >
+                  <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" class="error-message">
+                    Name is required (min 2 characters)
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input 
+                    id="email" 
+                    type="email" 
+                    formControlName="email"
+                    [class.error]="userForm.get('email')?.invalid && userForm.get('email')?.touched"
+                  >
+                  <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="error-message">
+                    Valid email is required
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="age">Age:</label>
+                  <input 
+                    id="age" 
+                    type="number" 
+                    formControlName="age"
+                    [class.error]="userForm.get('age')?.invalid && userForm.get('age')?.touched"
+                  >
+                  <div *ngIf="userForm.get('age')?.invalid && userForm.get('age')?.touched" class="error-message">
+                    Age must be between 18 and 120
+                  </div>
+                </div>
+                
+                <button type="submit" [disabled]="userForm.invalid" class="submit-btn">
+                  Submit Form
+                </button>
+              </form>
+              
+              <div *ngIf="submittedUser" class="submitted-data">
+                <h4>✅ Form Submitted:</h4>
+                <pre>{{ submittedUser | json }}</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="interview-tips">
+            <h4>💡 Interview Tips</h4>
+            <ul>
+              <li><strong>FormBuilder:</strong> Service to create FormGroups and FormControls</li>
+              <li><strong>Validators:</strong> Built-in (required, email, min) and custom validators</li>
+              <li><strong>FormControl States:</strong> pristine, dirty, touched, valid, invalid</li>
+              <li><strong>Reactive vs Template-driven:</strong> Reactive offers better control and testing</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Routing Section -->
+        <div *ngSwitchCase="'routing'" class="examples-section">
+          <div class="example-card">
+            <h3>🛣️ Router Navigation Demo</h3>
+            <div class="concept-explanation">
+              <p><strong>Navigation Examples:</strong></p>
+              <div class="routing-demo">
+                <button (click)="navigateToSection('components')" class="nav-demo-btn">
+                  Navigate to Components
+                </button>
+                <button (click)="navigateToSection('services')" class="nav-demo-btn">
+                  Navigate to Services
+                </button>
+                <button (click)="navigateToUsers()" class="nav-demo-btn">
+                  Navigate to Users (External)
+                </button>
+              </div>
+              
+              <div class="route-info">
+                <p><strong>Current Route:</strong> {{ currentRoute }}</p>
+                <p><strong>Query Params:</strong> {{ queryParams | json }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card">
+            <h3>🔒 Route Guards Simulation</h3>
+            <div class="concept-explanation">
+              <p><strong>Guard Types Demo:</strong></p>
+              <div class="guard-demo">
+                <label>
+                  <input type="checkbox" [(ngModel)]="isAuthenticated"> 
+                  Simulate Authentication
+                </label>
+                
+                <button (click)="tryProtectedRoute()" class="guard-demo-btn">
+                  Access Protected Route
+                </button>
+                
+                <div *ngIf="guardMessage" class="guard-message" [class.success]="isAuthenticated" [class.error]="!isAuthenticated">
+                  {{ guardMessage }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="interview-tips">
+            <h4>💡 Interview Tips</h4>
+            <ul>
+              <li><strong>CanActivate:</strong> Controls if route can be activated</li>
+              <li><strong>CanDeactivate:</strong> Controls leaving a route (unsaved changes)</li>
+              <li><strong>Resolve:</strong> Pre-loads data before route activation</li>
+              <li><strong>Router Service:</strong> Programmatic navigation with navigate()</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Lifecycle Hooks Section -->
+        <div *ngSwitchCase="'lifecycle'" class="examples-section">
+          <div class="example-card">
+            <h3>🔄 Lifecycle Hooks Demo</h3>
+            <div class="concept-explanation">
+              <p><strong>Interactive Component Lifecycle:</strong></p>
+              
+              <button (click)="toggleLifecycleDemo()" class="lifecycle-btn">
+                {{ showLifecycleDemo ? 'Destroy' : 'Create' }} Demo Component
+              </button>
+              
+              <div *ngIf="showLifecycleDemo" class="lifecycle-component">
+                <app-lifecycle-demo 
+                  [inputData]="lifecycleInputData"
+                  (lifecycleEvent)="onLifecycleEvent($event)">
+                </app-lifecycle-demo>
+                
+                <div class="input-controls">
+                  <label>Change Input Data:</label>
+                  <input [(ngModel)]="lifecycleInputData" placeholder="Type to trigger ngOnChanges">
+                </div>
+              </div>
+              
+              <div class="lifecycle-log">
+                <h4>Lifecycle Events Log:</h4>
+                <div class="log-container">
+                  <div *ngFor="let event of lifecycleEvents" class="log-entry">
+                    <span class="timestamp">{{ event.timestamp }}</span>
+                    <span class="event-name">{{ event.name }}</span>
+                    <span class="event-data">{{ event.data }}</span>
+                  </div>
+                </div>
+                <button (click)="clearLifecycleLog()" class="clear-btn">Clear Log</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="interview-tips">
+            <h4>💡 Interview Tips</h4>
+            <ul>
+              <li><strong>ngOnInit:</strong> Component initialization, API calls</li>
+              <li><strong>ngOnChanges:</strong> Responds to &#64;Input property changes</li>
+              <li><strong>ngOnDestroy:</strong> Cleanup subscriptions, avoid memory leaks</li>
+              <li><strong>ngAfterViewInit:</strong> Access to ViewChild elements</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Directives & Pipes Section -->
+        <div *ngSwitchCase="'directives'" class="examples-section">
+          <div class="example-card">
+            <h3>📏 Custom Directive Demo</h3>
+            <div class="concept-explanation">
+              <p><strong>Highlight Directive Example:</strong></p>
+              <div class="directive-demo">
+                <p appHighlight="yellow">This text has a custom highlight directive!</p>
+                <p appHighlight="lightblue">Hover over this text to see the effect!</p>
+                <p appHighlight>Default highlight color</p>
+              </div>
+              
+              <div class="color-controls">
+                <label>Choose highlight color:</label>
+                <select [(ngModel)]="selectedColor">
+                  <option value="yellow">Yellow</option>
+                  <option value="lightgreen">Light Green</option>
+                  <option value="lightcoral">Light Coral</option>
+                </select>
+                <p [appHighlight]="selectedColor">Dynamic color text!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card">
+            <h3>🔧 Custom Pipes Demo</h3>
+            <div class="concept-explanation">
+              <p><strong>Transform Data with Pipes:</strong></p>
+              
+              <div class="pipe-demo">
+                <div class="pipe-example">
+                  <h4>Truncate Pipe:</h4>
+                  <p>Original: "{{ longText }}"</p>
+                  <p>Truncated (20): "{{ longText | truncate:20 }}"</p>
+                  <p>Truncated (50): "{{ longText | truncate:50 }}"</p>
+                </div>
+                
+                <div class="pipe-example">
+                  <h4>Capitalize Words Pipe:</h4>
+                  <p>Original: "{{ sampleText }}"</p>
+                  <p>Capitalized: "{{ sampleText | capitalizeWords }}"</p>
+                </div>
+                
+                <div class="pipe-example">
+                  <h4>Time Ago Pipe:</h4>
+                  <p>Created: {{ createdDate | timeAgo }}</p>
+                  <p>Modified: {{ modifiedDate | timeAgo }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="interview-tips">
+            <h4>💡 Interview Tips</h4>
+            <ul>
+              <li><strong>Directive Types:</strong> Component, Structural (*ngIf), Attribute (highlights)</li>
+              <li><strong>Pipe Transform:</strong> Pure vs Impure pipes, performance implications</li>
+              <li><strong>Custom Directives:</strong> Use ElementRef, Renderer2 for DOM manipulation</li>
+              <li><strong>Built-in Pipes:</strong> date, currency, json, async, slice</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Testing Section -->
+        <div *ngSwitchCase="'testing'" class="examples-section">
+          <div class="example-card">
+            <h3>🧪 Component Testing Example</h3>
+            <div class="concept-explanation">
+              <p><strong>Testing Demonstration:</strong></p>
+              
+              <div class="testing-demo">
+                <div class="test-component">
+                  <h4>Counter Component (Test Subject):</h4>
+                  <div class="counter">
+                    <button (click)="decrementCounter()" [disabled]="counter <= 0">-</button>
+                    <span class="count">{{ counter }}</span>
+                    <button (click)="incrementCounter()">+</button>
+                  </div>
+                  <p class="counter-status">Status: {{ getCounterStatus() }}</p>
+                </div>
+                
+                <div class="test-scenarios">
+                  <h4>Test Scenarios:</h4>
+                  <button (click)="runTest('increment')" class="test-btn">Test Increment</button>
+                  <button (click)="runTest('decrement')" class="test-btn">Test Decrement</button>
+                  <button (click)="runTest('boundary')" class="test-btn">Test Boundary</button>
+                  <button (click)="runTest('status')" class="test-btn">Test Status</button>
+                </div>
+                
+                <div *ngIf="testResults.length > 0" class="test-results">
+                  <h4>Test Results:</h4>
+                  <div *ngFor="let result of testResults" class="test-result" [class.pass]="result.passed" [class.fail]="!result.passed">
+                    <span class="test-name">{{ result.name }}</span>
+                    <span class="test-status">{{ result.passed ? '✅ PASS' : '❌ FAIL' }}</span>
+                    <span class="test-message">{{ result.message }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="interview-tips">
+            <h4>💡 Interview Tips</h4>
+            <ul>
+              <li><strong>TestBed:</strong> Configure testing module, create component instances</li>
+              <li><strong>Fixture:</strong> Access component instance and DOM element</li>
+              <li><strong>Spies:</strong> Mock services and track method calls</li>
+              <li><strong>Async Testing:</strong> fakeAsync, tick, flush for async operations</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Fallback for unknown sections -->
+        <div *ngSwitchDefault class="coming-soon">
+          <h3>🚧 {{ getSectionInfo(activeSection).title }}</h3>
+          <p>{{ getSectionInfo(activeSection).description }}</p>
+          <p><strong>All sections are now complete!</strong> Select a section from the navigation above.</p>
+        </div>
+      </ng-container>
+    </div>
+  </main>
+</div>

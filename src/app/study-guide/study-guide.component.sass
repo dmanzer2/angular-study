@@ -1,0 +1,542 @@
+.study-guide-container
+  background: white
+  border-radius: 15px
+  margin: 20px auto
+  max-width: 1200px
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1)
+  overflow: hidden
+
+.study-header
+  text-align: center
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)
+  color: white
+  padding: 30px
+
+  h1
+    font-size: 2.5rem
+    margin: 0 0 10px 0
+
+  p
+    margin: 0
+    opacity: 0.9
+    font-size: 1.1rem
+
+.study-nav
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  gap: 8px
+  padding: 20px
+  background: #f8fafc
+  border-bottom: 1px solid #e2e8f0
+
+.nav-button
+  padding: 12px 20px
+  border: 2px solid #e2e8f0
+  border-radius: 25px
+  background: white
+  color: #64748b
+  cursor: pointer
+  transition: all 0.3s ease
+  font-weight: 500
+  font-size: 0.9rem
+
+  &:hover
+    background: #f1f5f9
+    border-color: #cbd5e1
+    transform: translateY(-1px)
+
+  &.active
+    background: #4f46e5
+    color: white
+    border-color: #4f46e5
+    font-weight: 600
+
+.study-content
+  padding: 30px
+
+.section-header
+  text-align: center
+  margin-bottom: 30px
+
+  h2
+    color: #1e293b
+    font-size: 2rem
+    margin: 0 0 10px 0
+
+.section-description
+  color: #64748b
+  font-size: 1.1rem
+  margin: 0
+
+.coming-soon
+  text-align: center
+  padding: 60px 20px
+  background: #f8fafc
+  border-radius: 12px
+  border: 2px dashed #cbd5e1
+
+  h3
+    color: #64748b
+    margin: 0 0 15px 0
+
+  p
+    color: #64748b
+    margin: 8px 0
+
+.examples-section
+  max-width: 100%
+
+.example-card
+  background: #f8fafc
+  border: 1px solid #e2e8f0
+  border-radius: 12px
+  padding: 24px
+  margin-bottom: 24px
+  transition: all 0.3s ease
+
+  &:hover
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1)
+    border-color: #cbd5e1
+
+  h3
+    color: #1e293b
+    margin: 0 0 16px 0
+    font-size: 1.3rem
+
+.concept-explanation
+  color: #475569
+  line-height: 1.6
+
+  p
+    margin: 0 0 12px 0
+
+  ul
+    margin: 8px 0 16px 20px
+    padding: 0
+
+  li
+    margin: 6px 0
+
+.interview-tips
+  background: #ecfdf5
+  border: 1px solid #d1fae5
+  border-radius: 12px
+  padding: 24px
+  margin-top: 24px
+
+  h4
+    color: #065f46
+    margin: 0 0 16px 0
+    font-size: 1.1rem
+
+  ul
+    margin: 0 0 0 20px
+    padding: 0
+    color: #047857
+
+  li
+    margin: 8px 0
+    line-height: 1.5
+
+.feature-preview
+  background: #fef7ff
+  border: 1px solid #e9d5ff
+  border-radius: 8px
+  padding: 16px
+  margin: 16px 0
+
+  h4
+    color: #7c2d12
+    margin: 0 0 12px 0
+
+  ul
+    margin: 0 0 0 20px
+    padding: 0
+    color: #92400e
+
+@media (max-width: 768px)
+  .study-header h1
+    font-size: 2rem
+  
+  .study-content
+    padding: 20px
+
+  .nav-button
+    padding: 10px 15px
+    font-size: 0.85rem
+
+// Reactive Forms Styles
+.demo-form
+  max-width: 400px
+  margin: 20px 0
+
+.form-group
+  margin-bottom: 16px
+
+  label
+    display: block
+    margin-bottom: 4px
+    font-weight: 500
+    color: #374151
+
+  input
+    width: 100%
+    padding: 8px 12px
+    border: 2px solid #d1d5db
+    border-radius: 6px
+    font-size: 14px
+    transition: border-color 0.3s ease
+
+    &:focus
+      outline: none
+      border-color: #4f46e5
+
+    &.error
+      border-color: #ef4444
+
+.error-message
+  color: #ef4444
+  font-size: 12px
+  margin-top: 4px
+
+.submit-btn
+  background: #4f46e5
+  color: white
+  padding: 10px 20px
+  border: none
+  border-radius: 6px
+  cursor: pointer
+  font-weight: 500
+  transition: background-color 0.3s ease
+
+  &:disabled
+    background: #9ca3af
+    cursor: not-allowed
+
+  &:hover:not(:disabled)
+    background: #4338ca
+
+.submitted-data
+  margin-top: 20px
+  padding: 16px
+  background: #f0fdf4
+  border: 1px solid #bbf7d0
+  border-radius: 8px
+
+  h4
+    margin: 0 0 8px 0
+    color: #166534
+
+  pre
+    background: #ffffff
+    padding: 12px
+    border-radius: 4px
+    overflow-x: auto
+    font-size: 12px
+
+// Routing Demo Styles
+.routing-demo
+  margin: 16px 0
+
+.nav-demo-btn
+  background: #3b82f6
+  color: white
+  padding: 8px 16px
+  border: none
+  border-radius: 6px
+  margin: 4px 8px 4px 0
+  cursor: pointer
+  transition: background-color 0.3s ease
+
+  &:hover
+    background: #2563eb
+
+.route-info
+  margin-top: 16px
+  padding: 12px
+  background: #f1f5f9
+  border-radius: 6px
+  font-family: monospace
+  font-size: 14px
+
+// Guard Demo Styles
+.guard-demo
+  margin: 16px 0
+
+  label
+    display: flex
+    align-items: center
+    margin-bottom: 12px
+    
+    input[type="checkbox"]
+      margin-right: 8px
+
+.guard-demo-btn
+  background: #7c3aed
+  color: white
+  padding: 8px 16px
+  border: none
+  border-radius: 6px
+  cursor: pointer
+  transition: background-color 0.3s ease
+
+  &:hover
+    background: #6d28d9
+
+.guard-message
+  margin-top: 12px
+  padding: 12px
+  border-radius: 6px
+  font-weight: 500
+
+  &.success
+    background: #f0fdf4
+    color: #166534
+    border: 1px solid #bbf7d0
+
+  &.error
+    background: #fef2f2
+    color: #dc2626
+    border: 1px solid #fecaca
+
+// Lifecycle Demo Styles
+.lifecycle-btn
+  background: #059669
+  color: white
+  padding: 10px 20px
+  border: none
+  border-radius: 6px
+  cursor: pointer
+  margin-bottom: 16px
+  transition: background-color 0.3s ease
+
+  &:hover
+    background: #047857
+
+.lifecycle-component
+  border: 2px dashed #d1d5db
+  border-radius: 8px
+  padding: 16px
+  margin: 16px 0
+
+.input-controls
+  margin-top: 16px
+
+  label
+    display: block
+    margin-bottom: 4px
+    font-weight: 500
+
+  input
+    width: 100%
+    max-width: 300px
+    padding: 8px 12px
+    border: 2px solid #d1d5db
+    border-radius: 6px
+
+.lifecycle-log
+  margin-top: 20px
+
+  h4
+    margin-bottom: 12px
+
+.log-container
+  max-height: 200px
+  overflow-y: auto
+  border: 1px solid #d1d5db
+  border-radius: 6px
+  padding: 8px
+
+.log-entry
+  display: flex
+  gap: 12px
+  padding: 4px 0
+  border-bottom: 1px solid #f3f4f6
+  font-family: monospace
+  font-size: 12px
+
+  &:last-child
+    border-bottom: none
+
+  .timestamp
+    color: #6b7280
+    min-width: 80px
+
+  .event-name
+    color: #4f46e5
+    min-width: 120px
+    font-weight: 500
+
+  .event-data
+    color: #374151
+
+.clear-btn
+  background: #ef4444
+  color: white
+  padding: 6px 12px
+  border: none
+  border-radius: 4px
+  cursor: pointer
+  margin-top: 8px
+  font-size: 12px
+
+  &:hover
+    background: #dc2626
+
+// Directives Demo Styles
+.directive-demo
+  margin: 16px 0
+
+  p
+    margin: 8px 0
+    padding: 8px
+    border-radius: 4px
+    cursor: pointer
+
+.color-controls
+  margin-top: 16px
+
+  label
+    display: block
+    margin-bottom: 4px
+    font-weight: 500
+
+  select
+    padding: 6px 10px
+    border: 2px solid #d1d5db
+    border-radius: 4px
+    margin-bottom: 8px
+
+  p
+    padding: 8px
+    border-radius: 4px
+    cursor: pointer
+    border: 1px solid #d1d5db
+
+// Pipes Demo Styles
+.pipe-demo
+  margin: 16px 0
+
+.pipe-example
+  margin-bottom: 20px
+  padding: 16px
+  background: #f8fafc
+  border-radius: 8px
+  border: 1px solid #e2e8f0
+
+  h4
+    margin: 0 0 8px 0
+    color: #475569
+
+  p
+    margin: 4px 0
+    font-family: monospace
+    font-size: 14px
+
+    &:first-of-type
+      color: #64748b
+
+    &:not(:first-of-type)
+      color: #1e293b
+      font-weight: 500
+
+// Testing Demo Styles
+.testing-demo
+  margin: 16px 0
+
+.test-component
+  background: #f8fafc
+  border: 2px solid #e2e8f0
+  border-radius: 8px
+  padding: 20px
+  margin-bottom: 20px
+
+.counter
+  display: flex
+  align-items: center
+  gap: 16px
+  margin: 12px 0
+
+  button
+    background: #4f46e5
+    color: white
+    border: none
+    border-radius: 50%
+    width: 40px
+    height: 40px
+    cursor: pointer
+    font-size: 18px
+    font-weight: bold
+    transition: background-color 0.3s ease
+
+    &:hover:not(:disabled)
+      background: #4338ca
+
+    &:disabled
+      background: #9ca3af
+      cursor: not-allowed
+
+  .count
+    font-size: 24px
+    font-weight: bold
+    color: #1e293b
+    min-width: 40px
+    text-align: center
+
+.counter-status
+  margin: 8px 0 0 0
+  font-weight: 500
+  color: #475569
+
+.test-scenarios
+  margin: 16px 0
+
+  h4
+    margin-bottom: 8px
+
+.test-btn
+  background: #059669
+  color: white
+  padding: 8px 16px
+  border: none
+  border-radius: 6px
+  margin: 4px 8px 4px 0
+  cursor: pointer
+  transition: background-color 0.3s ease
+
+  &:hover
+    background: #047857
+
+.test-results
+  margin-top: 16px
+
+  h4
+    margin-bottom: 8px
+
+.test-result
+  display: flex
+  gap: 12px
+  padding: 8px 12px
+  margin: 4px 0
+  border-radius: 6px
+  font-family: monospace
+  font-size: 12px
+
+  &.pass
+    background: #f0fdf4
+    border: 1px solid #bbf7d0
+
+  &.fail
+    background: #fef2f2
+    border: 1px solid #fecaca
+
+  .test-name
+    font-weight: 500
+    min-width: 120px
+
+  .test-status
+    min-width: 80px
+
+  .test-message
+    color: #6b7280

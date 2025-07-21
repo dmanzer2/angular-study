@@ -1,0 +1,156 @@
+.user-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0;
+  color: #333;
+}
+
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
+  margin-bottom: 20px;
+}
+
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.user-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+  }
+
+  &.selected {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+  }
+
+  h3 {
+    margin: 0 0 8px 0;
+    color: #333;
+  }
+}
+
+.email {
+  color: #666;
+  margin: 4px 0;
+}
+
+.username {
+  color: #888;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.phone {
+  color: #888;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.website {
+  color: #007bff;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.user-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &.btn-primary {
+    background: #007bff;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background: #0056b3;
+    }
+  }
+
+  &.btn-sm {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  &.btn-edit {
+    background: #28a745;
+    color: white;
+
+    &:hover {
+      background: #1e7e34;
+    }
+  }
+
+  &.btn-delete {
+    background: #dc3545;
+    color: white;
+
+    &:hover {
+      background: #c82333;
+    }
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .user-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  
+  .user-actions {
+    justify-content: center;
+  }
+}
