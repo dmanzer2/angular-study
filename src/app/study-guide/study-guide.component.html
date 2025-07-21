@@ -346,6 +346,25 @@
           </div>
         </div>
 
+        <!-- NgRx State Management Section -->
+        <div *ngSwitchCase="'ngrx'" class="examples-section">
+          <div class="example-card">
+            <h3>🗃️ NgRx State Management</h3>
+            <div class="concept-explanation">
+              <p><strong>NgRx provides predictable state management for Angular applications using Redux pattern:</strong></p>
+              <ul>
+                <li><strong>Store:</strong> Single source of truth for application state</li>
+                <li><strong>Actions:</strong> Describe what happened (events)</li>
+                <li><strong>Reducers:</strong> Pure functions that calculate new state</li>
+                <li><strong>Effects:</strong> Handle side effects (API calls, etc.)</li>
+                <li><strong>Selectors:</strong> Query slices of state</li>
+              </ul>
+            </div>
+            
+            <app-ngrx-demo></app-ngrx-demo>
+          </div>
+        </div>
+
         <!-- Testing Section -->
         <div *ngSwitchCase="'testing'" class="examples-section">
           <div class="example-card">

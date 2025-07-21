@@ -9,9 +9,5 @@ export const routes: Routes = [
   {
     path: 'study-guide',
     loadComponent: () => import('./study-guide/study-guide.component').then(c => c.StudyGuideComponent)
-  },
-  {
-    path: 'users',
-    loadComponent: () => import('./features/users/users.component').then(c => c.UsersComponent)
   }
 ];

@@ -1,59 +1,81 @@
-# AngularStudy
+# Angular Study Guide
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
+An interactive Angular study guide with working examples for interview preparation.
 
-## Development server
+## 🚀 Live Demo
 
-To start a local development server, run:
+Visit the deployed study guide: [https://dmanzer2.github.io/angular-study/](https://dmanzer2.github.io/angular-study/)
 
+## 📚 What's Included
+
+This study guide covers all major Angular interview topics with interactive examples:
+
+- **Components & Architecture** - Component communication, lifecycle hooks
+- **Services & Dependency Injection** - Injectable services, singleton pattern
+- **Reactive Forms** - FormBuilder, validation, form controls
+- **Routing & Navigation** - Router service, route guards
+- **Lifecycle Hooks** - ngOnInit, ngOnChanges, ngOnDestroy
+- **Directives & Pipes** - Custom directives and pipes
+- **NgRx State Management** - Interactive demo of Store, Actions, Reducers, Effects
+- **Testing** - Component testing strategies
+
+## 🛠️ Development
+
+### Prerequisites
+- Node.js (v18 or later)
+- npm or yarn
+
+### Installation
 ```bash
+npm install
+```
+
+### Development server
+```bash
+npm start
+# or
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to `http://localhost:4200/` to view the application.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Building for production
 ```bash
-ng generate component component-name
+npm run build:prod
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📦 Deployment
+
+This project is configured for GitHub Pages deployment:
 
 ```bash
-ng generate --help
+npm run deploy
 ```
 
-## Building
+This will:
+1. Build the project with the correct base href for GitHub Pages
+2. Deploy to the `gh-pages` branch
+3. Update the live site automatically
 
-To build the project run:
+### Manual GitHub Pages Setup
 
+1. Go to your repository settings
+2. Navigate to "Pages" section
+3. Select "gh-pages" branch as source
+4. Your site will be available at `https://username.github.io/angular-study/`
+
+## 🔧 Troubleshooting
+
+### NgRx Errors
+If you encounter NgRx-related errors, the required packages are included:
 ```bash
-ng build
+npm install @ngrx/store @ngrx/effects @ngrx/entity @ngrx/store-devtools
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+### Build Issues
+For build issues, try:
 ```bash
-ng test
+# Clear Angular cache
+rm -rf .angular
+npm run build:prod
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

@@ -8,6 +8,7 @@ import { CapitalizeWordsPipe } from './pipes/capitalize-words.pipe';
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
 import { LifecycleDemoComponent } from './components/lifecycle-demo.component';
+import { NgRxDemoComponent } from './components/ngrx-demo.component';
 
 @Component({
   selector: 'app-study-guide',
@@ -20,7 +21,8 @@ import { LifecycleDemoComponent } from './components/lifecycle-demo.component';
     CapitalizeWordsPipe,
     TimeAgoPipe,
     HighlightDirective,
-    LifecycleDemoComponent
+    LifecycleDemoComponent,
+    NgRxDemoComponent
   ],
   templateUrl: './study-guide.component.html',
   styleUrl: './study-guide.component.sass'
@@ -81,6 +83,10 @@ export class StudyGuideComponent implements OnInit, OnDestroy {
     directives: { 
       title: 'Directives & Pipes', 
       description: 'Structural Directives, Custom Pipes' 
+    },
+    ngrx: { 
+      title: 'NgRx State Management', 
+      description: 'Store, Actions, Reducers, Effects, Selectors' 
     },
     testing: { 
       title: 'Testing (Bonus)', 
